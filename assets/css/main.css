@@ -3584,4 +3584,93 @@ input, select, textarea {
 		height: 100vh; /* Decrease height for taller screens */
 		}
 	}
+
+	/* Timeline Container */
+	.timeline {
+		position: relative;
+		margin: 50px 0;
+		padding: 0;
+	}
+	
+	/* Vertical Line in the Middle */
+	.timeline::before {
+		content: "";
+		position: absolute;
+		left: 50%;
+		top: 0;
+		bottom: 0;
+		width: 2px;
+		background: #ffffff; /* adjust color if needed */
+		opacity: 0.6;
+	}
+	
+	/* Timeline Item */
+	.timeline-item {
+		position: relative;
+		width: 50%;
+		padding: 20px 40px;
+		box-sizing: border-box;
+	}
+	
+	/* Alternate placement for timeline items */
+	.timeline-item:nth-child(odd) {
+		left: 0;
+		text-align: right;
+	}
+	
+	.timeline-item:nth-child(even) {
+		left: 50%;
+		text-align: left;
+	}
+	
+	/* Timeline Marker (dot) */
+	.timeline-item::after {
+		content: "";
+		position: absolute;
+		top: 20px;
+		width: 20px;
+		height: 20px;
+		background: #ffffff;
+		border: 2px solid #ffffff;
+		border-radius: 50%;
+		z-index: 2;
+	}
+	
+	.timeline-item:nth-child(odd)::after {
+		right: -10px;
+	}
+	
+	.timeline-item:nth-child(even)::after {
+		left: -10px;
+	}
+	
+	/* Date Styling */
+	.timeline-date {
+		font-weight: bold;
+		margin-bottom: 5px;
+		color: #ffffff;
+	}
+	
+	/* Content Styling */
+	.timeline-content h3 {
+		margin: 0;
+		color: #ffffff;
+	}
+	
+	.timeline-content p {
+		margin: 5px 0 0;
+		color: #ffffff;
+	}
+	
+	/* Scroll Reveal Animation */
+	.scroll-reveal {
+		opacity: 0;
+		transform: translateY(20px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	}
+	
+	.scroll-reveal.visible {
+		opacity: 1;
+		transform: none;
+	}
 	  

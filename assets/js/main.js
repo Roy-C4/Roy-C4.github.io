@@ -52,4 +52,26 @@
 		  
 		  document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 
+		  document.addEventListener("DOMContentLoaded", function() {
+			var reveals = document.querySelectorAll(".scroll-reveal");
+			
+			function reveal() {
+			  for (var i = 0; i < reveals.length; i++) {
+				var windowHeight = window.innerHeight;
+				var elementTop = reveals[i].getBoundingClientRect().top;
+				var elementVisible = 100; // Adjust this value as needed
+				
+				if (elementTop < windowHeight - elementVisible) {
+				  reveals[i].classList.add("visible");
+				} else {
+				  reveals[i].classList.remove("visible");
+				}
+			  }
+			}
+			
+			window.addEventListener("scroll", reveal);
+			// Trigger once on load
+			reveal();
+		  });
+
 })(jQuery);
