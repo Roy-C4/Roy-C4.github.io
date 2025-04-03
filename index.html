@@ -2,30 +2,73 @@
 <html>
 	<head>
 		<title>Saumya Roy - Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<meta charset=\"utf-8\" />
+		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\" />
+		<link rel=\"stylesheet\" href=\"assets/css/main.css\" />
+		<noscript><link rel=\"stylesheet\" href=\"assets/css/noscript.css\" /></noscript>
+		<style>
+			#experience {
+				background-image: url('images/bg-experience.jpg');
+				background-size: cover;
+				background-attachment: fixed;
+				color: #ffffff;
+				position: relative;
+			}
+			#experience::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.6);
+				backdrop-filter: blur(5px);
+			}
+			#experience .container {
+				position: relative;
+				z-index: 1;
+			}
+		</style>
 	</head>
-	<body class="is-preload">
+	<body class=\"is-preload\">
 
 		<!-- Header -->
-		<section id="header">
-			<div class="inner">
+		<section id=\"header\">
+			<div class=\"inner\">
 				<h1>Hi, I'm <strong>Saumya Roy</strong></h1>
 				<p>Data Scientist | AI Researcher | Software Engineer</p>
-				<ul class="icons">
-					<li><a href="https://github.com/Roy-C4" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
-					<li><a href="https://www.linkedin.com/in/saumyar2d2" class="icon brands alt fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
-					<li><a href="mailto:s.roy1@student.tue.nl" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				<ul class=\"icons\">
+					<li><a href=\"https://github.com/Roy-C4\" class=\"icon brands alt fa-github\" target=\"_blank\"><span class=\"label\">GitHub</span></a></li>
+					<li><a href=\"https://www.linkedin.com/in/saumyar2d2\" class=\"icon brands alt fa-linkedin-in\" target=\"_blank\"><span class=\"label\">LinkedIn</span></a></li>
+					<li><a href=\"mailto:s.roy1@student.tue.nl\" class=\"icon solid alt fa-envelope\"><span class=\"label\">Email</span></a></li>
+				</ul>
+				<ul class=\"actions special\">
+					<li><a href=\"#about\" class=\"button scrolly\">Discover</a></li>
 				</ul>
 			</div>
 		</section>
 
+		<!-- About Me -->
+		<section id=\"about\" class=\"main style1\">
+			<div class=\"container\">
+				<header class=\"major special\">
+					<h2>About Me</h2>
+				</header>
+				<div class=\"row\">
+					<div class=\"col-4 col-12-medium\">
+						<span class=\"image fit\"><img src=\"images/myphoto.jpg\" alt=\"Saumya Roy\" /></span>
+					</div>
+					<div class=\"col-8 col-12-medium\">
+						<p>Hello! I'm Saumya Roy, a passionate Data Scientist and AI researcher with experience in software engineering and cybersecurity. I'm currently pursuing my MSc in Data Science and AI at TU Eindhoven. I enjoy tackling complex problems using deep learning, machine learning, and large language models.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Education -->
-		<section id="one" class="main style1">
-			<div class="container">
-				<header class="major special">
+		<section id=\"one\" class=\"main style1\">
+			<div class=\"container\">
+				<header class=\"major special\">
 					<h2>Education</h2>
 				</header>
 				<p><strong>MSc Data Science and AI</strong>, TU Eindhoven (2022-2025) | GPA: 7.0/10.0<br>
@@ -34,9 +77,9 @@
 		</section>
 
 		<!-- Experience -->
-		<section id="two" class="main style2">
-			<div class="container">
-				<header class="major special">
+		<section id=\"experience\" class=\"main style2\">
+			<div class=\"container\">
+				<header class=\"major special\">
 					<h2>Professional Experience</h2>
 				</header>
 				<ul>
@@ -49,26 +92,26 @@
 		</section>
 
 		<!-- Projects -->
-		<section id="three" class="main style1 special">
-			<div class="container">
-				<header class="major special">
+		<section id=\"three\" class=\"main style1 special\">
+			<div class=\"container\">
+				<header class=\"major special\">
 					<h2>Projects</h2>
 				</header>
-				<div class="row">
-					<div class="col-4 col-12-medium">
+				<div class=\"row\">
+					<div class=\"col-4 col-12-medium\">
 						<h3>Google Gemini Competition</h3>
 						<p>Platform using Gemini LLM for connecting researchers and content recommendation.</p>
-						<a href="https://ai.google.dev/competition/projects/operon" class="button">View Project</a>
+						<a href=\"https://ai.google.dev/competition/projects/operon\" class=\"button\">View Project</a>
 					</div>
-					<div class="col-4 col-12-medium">
+					<div class=\"col-4 col-12-medium\">
 						<h3>Data Intelligence Challenge</h3>
 						<p>Deep Reinforcement Learning agents for navigation tasks.</p>
-						<a href="https://github.com/Roy-C4/Data-Intelligence-Challenge-2023" class="button">View GitHub</a>
+						<a href=\"https://github.com/Roy-C4/Data-Intelligence-Challenge-2023\" class=\"button\">View GitHub</a>
 					</div>
-					<div class="col-4 col-12-medium">
+					<div class=\"col-4 col-12-medium\">
 						<h3>IBM Hackathon</h3>
 						<p>Real-time tweet sentiment classification during COVID-19.</p>
-						<a href="https://github.com/Roy-C4/IBM-hackathon" class="button">View GitHub</a>
+						<a href=\"https://github.com/Roy-C4/IBM-hackathon\" class=\"button\">View GitHub</a>
 					</div>
 				</div>
 			</div>
@@ -111,12 +154,13 @@
 			</ul>
 		</section>
 
+
 		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+		<script src=\"assets/js/jquery.min.js\"></script>
+		<script src=\"assets/js/jquery.scrolly.min.js\"></script>
+		<script src=\"assets/js/browser.min.js\"></script>
+		<script src=\"assets/js/breakpoints.min.js\"></script>
+		<script src=\"assets/js/util.js\"></script>
+		<script src=\"assets/js/main.js\"></script>
 	</body>
 </html>
