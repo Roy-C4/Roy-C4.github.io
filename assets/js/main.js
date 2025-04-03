@@ -29,4 +29,27 @@
 	// Scrolly.
 		$('.scrolly').scrolly();
 
+		if ('scrollRestoration' in history) {
+			history.scrollRestoration = 'manual';
+		  }
+		  
+		  // Ensure the page always starts at the top
+		  window.addEventListener('load', function() {
+			window.scrollTo(0, 0);
+		  });
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+			  if (entry.isIntersecting) {
+				entry.target.classList.add('visible');
+			  } else {
+				entry.target.classList.remove('visible'); // Remove when out of view
+			  }
+			});
+		  }, {
+			threshold: 0.5
+		  });
+		  
+		  document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
 })(jQuery);
