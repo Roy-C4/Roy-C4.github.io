@@ -1,0 +1,123 @@
+/*
+	Photon by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+(function($) {
+
+	var	$window = $(window),
+		$body = $('body');
+
+	// Breakpoints.
+		breakpoints({
+			xlarge:   [ '1141px',  '1680px' ],
+			large:    [ '981px',   '1140px' ],
+			medium:   [ '737px',   '980px'  ],
+			small:    [ '481px',   '736px'  ],
+			xsmall:   [ '321px',   '480px'  ],
+			xxsmall:  [ null,      '320px'  ]
+		});
+
+	// Play initial animations on page load.
+		$window.on('load', function() {
+			window.setTimeout(function() {
+				$body.removeClass('is-preload');
+			}, 100);
+		});
+
+	// Scrolly.
+		$('.scrolly').scrolly();
+
+	// Scroll Restoration
+		if ('scrollRestoration' in history) {
+			history.scrollRestoration = 'manual';
+		  }
+
+	// Ensure the page always starts at the top on load
+		window.addEventListener('load', function() {
+			window.scrollTo(0, 0);
+		});
+
+    // --- MODIFICATIONS START ---
+
+    // Typewriter Effect for Header Name
+    function typeWriter(element, text, i, callback) {
+        if (i < text.length) {
+            element.html(text.substring(0, i + 1));
+            setTimeout(function() {
+                typeWriter(element, text, i + 1, callback);
+            }, 100); // Adjust typing speed here (milliseconds)
+        } else if (typeof callback == 'function') {
+            // Ensure cursor stays after typing finishes
+             // element.siblings('.cursor').css('animation', 'blink 0.7s infinite');
+            callback();
+        }
+    }
+
+    $(document).ready(function() {
+        var nameElement = $('#typewriter-name');
+        var nameText = "Saumya Roy"; // The text to type
+        var cursor = nameElement.siblings('.cursor');
+
+        if (nameElement.length > 0) {
+            nameElement.html(''); // Clear initial content
+            // Initially hide cursor or set its animation to none if preferred
+            // cursor.css('animation', 'none');
+            typeWriter(nameElement, nameText, 0, function() {
+                // Optional: Do something after typing finishes
+                // Keep cursor blinking by default CSS animation
+                 // cursor.css('animation', 'blink 0.7s infinite');
+            });
+        }
+
+        // Course Dropdown Toggle
+        $('.course-toggle').on('click', function() {
+            var $this = $(this);
+            var $details = $this.next('.course-details');
+
+            // Toggle the active class on the clicked header
+            $this.toggleClass('active');
+
+            // Slide toggle the details panel
+            $details.slideToggle(300); // Smooth slide animation
+
+            // Optional: Close other open dropdowns within the same list
+            // $this.closest('li').siblings().find('.course-toggle.active').each(function() {
+            //     $(this).removeClass('active').next('.course-details').slideUp(300);
+            // });
+        });
+
+    });
+
+
+	// Scroll Reveal Animation (using Intersection Observer)
+		const observerOptions = {
+			// root: null, // default is viewport
+			// rootMargin: '0px',
+			threshold: 0.15 // Trigger when 15% of the element is visible
+		};
+
+		const observerCallback = (entries, observer) => {
+			entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('visible');
+				// Optional: Unobserve after animation to improve performance
+				// observer.unobserve(entry.target);
+			} else {
+				// Optional: Remove class if you want animation to repeat on scroll up/down
+				// entry.target.classList.remove('visible');
+			}
+			});
+		};
+
+		const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+		document.querySelectorAll('.scroll-reveal').forEach(el => {
+			scrollObserver.observe(el);
+		});
+
+
+    // --- MODIFICATIONS END ---
+
+})(jQuery); 

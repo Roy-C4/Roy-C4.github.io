@@ -1,0 +1,315 @@
+/* Additional styling for recruiter-focused elements */
+
+/* Stats Cards */
+.stats-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stats-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgba(70, 150, 229, 0.2);
+}
+
+.stats-card span.icon {
+  font-size: 3em;
+  color: #4696e5;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.stats-card h3 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.stats-card p {
+  font-size: 1em;
+  color: #d4e0f4;
+}
+
+/* Testimonial Slider */
+.testimonial-slider {
+  position: relative;
+  margin: 40px 0;
+}
+
+.testimonial-slide {
+  display: none;
+  animation: fadeEffect 1s;
+}
+
+.testimonial-content {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-content:before {
+  content: '"';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 60px;
+  color: rgba(70, 150, 229, 0.3);
+  font-family: Georgia, serif;
+  line-height: 0.8;
+}
+
+.testimonial-content p {
+  font-style: italic;
+  color: #ffffff;
+  font-size: 1.1em;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.testimonial-author p {
+  font-style: normal;
+  font-size: 0.9em;
+  color: #d4e0f4;
+}
+
+.testimonial-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #4696e5;
+  transform: scale(1.2);
+}
+
+/* Achievements Section */
+.achievements-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.achievement-item {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.achievement-icon {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 30px;
+  color: #4696e5;
+  background-color: rgba(70, 150, 229, 0.1);
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.achievement-item h3 {
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  color: #4696e5;
+}
+
+.achievement-item p {
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+/* Publication Badges */
+.paper-badge {
+  display: inline-block;
+  background-color: #4696e5;
+  color: white;
+  font-size: 0.7em;
+  padding: 3px 8px;
+  border-radius: 10px;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.publication-link {
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.publication-link:hover {
+  color: #4696e5 !important;
+}
+
+.publication-link:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #4696e5;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.publication-link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Skill Category Styling */
+.skill-container {
+  margin: 2em 0;
+}
+
+.skill-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-item:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(70, 150, 229, 0), rgba(70, 150, 229, 0.2));
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.skill-item:hover:before {
+  transform: translateX(0);
+}
+
+.key-skill {
+  background-color: rgba(70, 150, 229, 0.3) !important;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+/* Collapsible List Styling */
+.collapsible-button {
+  background-color: rgba(70, 150, 229, 0.2);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9em;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.collapsible-button:hover {
+  background-color: rgba(70, 150, 229, 0.4);
+}
+
+/* CTA Section Enhancement */
+#cta {
+  position: relative;
+  overflow: hidden;
+}
+
+#cta:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(70, 150, 229, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: -1;
+}
+
+/* Highlight effect for section when scrolled to */
+.highlight-section {
+  animation: highlight-pulse 1.5s ease-out;
+}
+
+@keyframes highlight-pulse {
+  0% {
+    box-shadow: inset 0 0 0 1000px rgba(70, 150, 229, 0);
+  }
+  50% {
+    box-shadow: inset 0 0 0 1000px rgba(70, 150, 229, 0.05);
+  }
+  100% {
+    box-shadow: inset 0 0 0 1000px rgba(70, 150, 229, 0);
+  }
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Mobile Responsiveness for Additional Elements */
+@media screen and (max-width: 736px) {
+  .stats-card {
+    margin-bottom: 20px;
+  }
+  
+  .achievement-item {
+    min-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-content:before {
+    font-size: 40px;
+  }
+  
+  .skill-container {
+    justify-content: flex-start;
+  }
+  
+  .skill-item {
+    margin-bottom: 10px;
+  }
+}
