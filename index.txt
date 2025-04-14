@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap" rel="stylesheet"> <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -238,7 +239,7 @@
 					<div class="col-4 col-12-medium scroll-reveal"> <div class="box project-box">
 							<h3>Google Gemini Competition</h3>
 							<p>Platform using Gemini LLM for connecting researchers and content recommendation.</p>
-							<a href="https://ai.google.dev/competition/projects/operon" class="button" target="_blank">View Project</a>
+							<a href="https://ai.google.dev/competition/projects/operon" class="button" target="_blank">View GitHub</a>
 						</div>
 					</div>
 					<div class="col-4 col-12-medium scroll-reveal"> <div class="box project-box">
@@ -253,6 +254,12 @@
 							<a href="https://github.com/Roy-C4/IBM-hackathon" class="button" target="_blank">View GitHub</a>
 						</div>
 					</div>
+					<div class="col-4 col-12-medium scroll-reveal"> <div class="box project-box">
+						<h3>Honda Hackathon</h3>
+						<p>Real-time heart attack detection system while driving.</p>
+						<a href="https://github.com/Roy-C4/Honda_Hackathon" class="button" target="_blank">View GitHub</a>
+					</div>
+				</div>
 				</div>
 			</div>
 		</section>
@@ -299,7 +306,7 @@
                 </ul>
 			<ul class="copyright">
 				<li>&copy; Saumya Roy</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				<li>2025</a></li>
 			</ul>
 		</section>
 

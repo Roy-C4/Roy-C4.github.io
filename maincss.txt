@@ -1,6 +1,7 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic");
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap");
 /*
 	Photon by HTML5 UP
 	html5up.net | @ajlkn
@@ -99,9 +100,9 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #666;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: "Satoshi", Helvetica, sans-serif;
 		font-size: 16pt;
-		font-weight: 300;
+		font-weight: 400;
 		line-height: 1.65em;
 	}
 

@@ -4240,4 +4240,57 @@ hr.major {
   }
   /* -- End Section Title Shadow Effect (Updated) -- */
   
-  /* --- END VERSION 9 MODIFICATIONS --- */
+  /* --- START Mobile Timeline Fix (V2) --- */
+
+@media screen and (max-width: 736px) { /* Target small screens */
+
+    /* Adjust the main vertical line position */
+    .timeline::before {
+        left: 15px; /* Move line to the left */
+        margin-left: 0;
+    }
+
+    /* Adjust timeline items */
+    .timeline-item {
+        width: 100%; /* Full width */
+        padding-left: 50px; /* Space for line and marker */
+        padding-right: 15px; /* Adjust right padding */
+        margin-bottom: 30px; /* Add some space between stacked items */
+        position: relative; /* Ensure ::after positioning context is correct */
+    }
+
+    /* Force all items to the left and align text left */
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0; /* Reset horizontal positioning */
+        text-align: left; /* Ensure text aligns left */
+    }
+
+    /* Reposition the marker (dot) for BOTH odd and even items */
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 6px;   /* Position marker over the left line (15px - (20px/2) - border ) */
+        right: auto; /* Remove any right positioning from desktop styles */
+        top: 20px;  /* Ensure consistent vertical alignment */
+    }
+
+    /* Ensure content inside aligns left */
+    .timeline-item:nth-child(odd) .timeline-content {
+        text-align: left; /* Override right alignment for odd items */
+    }
+
+     /* Ensure date aligns left */
+    .timeline-item:nth-child(odd) .timeline-date,
+    .timeline-item:nth-child(even) .timeline-date {
+        text-align: left;
+    }
+
+     /* Adjust card padding if needed */
+    .timeline-card {
+        padding: 1em; /* Slightly reduce padding on mobile */
+    }
+
+}
+
+
+/* --- END Mobile Timeline Fix --- */
