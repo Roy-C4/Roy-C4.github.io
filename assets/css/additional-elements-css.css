@@ -277,17 +277,24 @@
   0% {
     box-shadow: inset 0 0 0 1000px rgba(70, 150, 229, 0);
   }
+
   50% {
     box-shadow: inset 0 0 0 1000px rgba(70, 150, 229, 0.05);
   }
+
   100% {
     box-shadow: inset 0 0 0 1000px rgba(70, 150, 229, 0);
   }
 }
 
 @keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Mobile Responsiveness for Additional Elements */
@@ -295,20 +302,20 @@
   .stats-card {
     margin-bottom: 20px;
   }
-  
+
   .achievement-item {
     min-width: 100%;
     margin-bottom: 20px;
   }
-  
+
   .testimonial-content:before {
     font-size: 40px;
   }
-  
+
   .skill-container {
     justify-content: flex-start;
   }
-  
+
   .skill-item {
     margin-bottom: 10px;
   }

@@ -3809,6 +3809,80 @@ input, select, textarea {
 	transform: translateY(-50%) rotate(45deg);
 }
 
+/* Degree Section Collapsible Dropdown */
+.degree-header {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+	gap: 0.75em;
+	padding: 0.25em 0;
+}
+
+.degree-header:hover h3,
+.degree-header:hover h3 strong {
+	color: #6bd4c8;
+}
+
+.degree-header h3 {
+	flex: 1;
+	margin-bottom: 0;
+}
+
+.degree-toggle-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.6rem;
+	height: 2.6rem;
+	border-radius: 50%;
+	background-color: rgba(107, 212, 200, 0.1);
+	border: 2px solid rgba(107, 212, 200, 0.5);
+	flex-shrink: 0;
+	cursor: pointer;
+	transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.degree-toggle-btn .play-i,
+.degree-toggle-btn .pause-i {
+	font-size: 1.05rem;
+	color: #6bd4c8;
+	line-height: 1;
+}
+
+.degree-toggle-btn .play-i {
+	display: inline-block;
+	margin-left: 2px; /* nudge right to visually centre the play triangle */
+}
+
+.degree-toggle-btn .pause-i {
+	display: none;
+}
+
+.degree-toggle-btn.active {
+	background-color: rgba(107, 212, 200, 0.2);
+	border-color: #6bd4c8;
+}
+
+.degree-toggle-btn.active .play-i {
+	display: none;
+}
+
+.degree-toggle-btn.active .pause-i {
+	display: inline-block;
+}
+
+.degree-header:hover .degree-toggle-btn {
+	background-color: rgba(107, 212, 200, 0.22);
+	border-color: #6bd4c8;
+	box-shadow: 0 0 14px rgba(107, 212, 200, 0.45);
+}
+
+.degree-content {
+	display: none;
+	padding-top: 0.75em;
+}
+
 /* Experience Section - Timeline Cards (Keep from previous step) */
 .timeline-card {
 	background-color: rgba(255, 255, 255, 0.1);
