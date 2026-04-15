@@ -14,6 +14,16 @@
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
 	<style>
+		/* ── Hero CTA button ── */
+		.pulse-btn {
+			animation: pulse-glow 2.5s ease-in-out infinite;
+		}
+
+		@keyframes pulse-glow {
+			0%, 100% { box-shadow: 0 0 0px rgba(255,255,255,0); }
+			50%       { box-shadow: 0 0 18px 4px rgba(255,255,255,0.35); }
+		}
+
 		/* ── RAG Chatbot ── */
 		.chat-wrapper {
 			max-width: 720px;
@@ -151,6 +161,10 @@
 							class="label">Email</span></a></li>
 				<li><a href="assets/Saumya_Roy_CV.pdf" class="icon solid alt fa-file-alt" target="_blank"><span
 							class="label">CV</span></a></li>
+				<li style="display:inline-flex; flex-direction:column; align-items:center; gap:3px;">
+					<a href="#rag-twin" class="icon solid alt fa-robot scrolly pulse-btn" title="Chat with My AI Twin"><span class="label">AI Twin</span></a>
+					<span style="font-size:0.48rem; letter-spacing:0.18em; opacity:0.5; font-weight:700; pointer-events:none; line-height:1;">MeRAG</span>
+				</li>
 			</ul>
 			<ul class="actions special">
 				<li><a href="#zero" class="button scrolly"><span class="discover-text-effect">Discover</span></a></li>
@@ -632,14 +646,14 @@
 	<section id="rag-twin" class="main style2 special">
 		<div class="container scroll-reveal">
 			<header class="major special">
-				<h2 class="section-title-shadow-effect">RAG Digital Twin</h2>
+				<h2 class="section-title-shadow-effect">MeRAG Virtual Avatar</h2>
 				<p style="color:rgba(255,255,255,0.55); margin-top:1.2rem; margin-bottom:2rem; font-size:0.8rem; letter-spacing:0.03em;">
 					Ask me anything about my background, projects, or experience.
 				</p>
 			</header>
 			<div class="chat-wrapper">
 				<div id="chat-log">
-					<div class="msg bot">Hi! I'm Saumya's AI digital twin. Ask me about his experience, projects, or skills.</div>
+					<div class="msg bot">Hi! I'm Saumya's AI digital twin. Ask me about my experience, projects, or skills.</div>
 				</div>
 				<div class="chat-input-row">
 					<input id="chat-input" type="text" placeholder="Ask something about Saumya…" autocomplete="off" />
