@@ -13,6 +13,127 @@
 	<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap" rel="stylesheet"> <noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+	<style>
+		/* ── RAG Chatbot ── */
+		.chat-wrapper {
+			max-width: 720px;
+			margin: 0 auto;
+		}
+
+		#chat-log {
+			height: 380px;
+			overflow-y: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			padding: 1.25rem;
+			background: rgba(255, 255, 255, 0.04);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 12px 12px 0 0;
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+		}
+
+		#chat-log::-webkit-scrollbar { width: 5px; }
+		#chat-log::-webkit-scrollbar-track { background: transparent; }
+		#chat-log::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+
+		.msg {
+			max-width: 80%;
+			padding: 0.65rem 1rem;
+			border-radius: 18px;
+			line-height: 1.5;
+			font-size: 0.92rem;
+			word-break: break-word;
+		}
+
+		.msg.user {
+			align-self: flex-end;
+			background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.1));
+			color: #fff;
+			border: 1px solid rgba(255,255,255,0.2);
+			border-bottom-right-radius: 4px;
+		}
+
+		.msg.bot {
+			align-self: flex-start;
+			background: rgba(255, 255, 255, 0.08);
+			color: rgba(255,255,255,0.88);
+			border: 1px solid rgba(255,255,255,0.1);
+			border-bottom-left-radius: 4px;
+		}
+
+		/* Typing indicator */
+		.msg.typing {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			padding: 0.75rem 1rem;
+			background: rgba(255,255,255,0.08);
+		}
+
+		.msg.typing span {
+			display: inline-block;
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.6);
+			animation: blink 1.2s infinite ease-in-out;
+		}
+
+		.msg.typing span:nth-child(2) { animation-delay: 0.2s; }
+		.msg.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+		@keyframes blink {
+			0%, 80%, 100% { opacity: 0.2; transform: scale(0.85); }
+			40%            { opacity: 1;   transform: scale(1.1); }
+		}
+
+		.chat-input-row {
+			display: flex;
+			border: 1px solid rgba(255,255,255,0.1);
+			border-top: none;
+			border-radius: 0 0 12px 12px;
+			overflow: hidden;
+			background: rgba(255,255,255,0.06);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+		}
+
+		#chat-input {
+			flex: 1;
+			background: transparent;
+			border: none;
+			outline: none;
+			padding: 0.85rem 1.1rem;
+			color: #fff;
+			font-size: 0.92rem;
+			font-family: inherit;
+		}
+
+		#chat-input::placeholder { color: rgba(255,255,255,0.35); }
+
+		#chat-send {
+			background: rgba(255,255,255,0.12);
+			border: none;
+			border-left: 1px solid rgba(255,255,255,0.1);
+			color: #fff;
+			padding: 0 1.4rem;
+			cursor: pointer;
+			font-size: 0.9rem;
+			letter-spacing: 0.05em;
+			transition: background 0.2s;
+		}
+
+		#chat-send:hover { background: rgba(255,255,255,0.22); }
+
+		.chat-hint {
+			margin-top: 0.6rem;
+			font-size: 0.78rem;
+			color: rgba(255,255,255,0.3);
+			text-align: center;
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -508,11 +629,24 @@
 		</div>
 	</section>
 
-	<section id="four" class="main style2 special">
+	<section id="rag-twin" class="main style2 special">
 		<div class="container scroll-reveal">
 			<header class="major special">
-				<h2 class="section-title-shadow-effect">RAG Digital Twin Coming soon......</h2>
+				<h2 class="section-title-shadow-effect">RAG Digital Twin</h2>
+				<p style="color:rgba(255,255,255,0.55); margin-top:1.2rem; margin-bottom:2rem; font-size:0.8rem; letter-spacing:0.03em;">
+					Ask me anything about my background, projects, or experience.
+				</p>
 			</header>
+			<div class="chat-wrapper">
+				<div id="chat-log">
+					<div class="msg bot">Hi! I'm Saumya's AI digital twin. Ask me about his experience, projects, or skills.</div>
+				</div>
+				<div class="chat-input-row">
+					<input id="chat-input" type="text" placeholder="Ask something about Saumya…" autocomplete="off" />
+					<button id="chat-send" onclick="sendMessage()">Send</button>
+				</div>
+				<p class="chat-hint">Press Enter or click Send &mdash; responses are generated from Saumya's CV and project docs.</p>
+			</div>
 		</div>
 	</section>
 
@@ -539,6 +673,69 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<script>
+		async function sendMessage() {
+			const input = document.getElementById('chat-input');
+			const text = input.value.trim();
+			if (!text) return;
+
+			const log = document.getElementById('chat-log');
+
+			// Append user message
+			const userMsg = document.createElement('div');
+			userMsg.className = 'msg user';
+			userMsg.textContent = text;
+			log.appendChild(userMsg);
+			input.value = '';
+			log.scrollTop = log.scrollHeight;
+
+			// Append typing indicator
+			const typing = document.createElement('div');
+			typing.className = 'msg bot typing';
+			typing.innerHTML = '<span></span><span></span><span></span>';
+			log.appendChild(typing);
+			log.scrollTop = log.scrollHeight;
+
+			try {
+				const res = await fetch(
+					'https://portfolio-func-hjhka3h9e0gnhyf4.swedencentral-01.azurewebsites.net/api/chat',
+					{
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ message: text })
+					}
+				);
+				const data = await res.json();
+				typing.remove();
+
+				const botMsg = document.createElement('div');
+				botMsg.className = 'msg bot';
+				botMsg.textContent = data.response || 'Sorry, I could not get a response.';
+				log.appendChild(botMsg);
+			} catch (err) {
+				typing.remove();
+				const errMsg = document.createElement('div');
+				errMsg.className = 'msg bot';
+				errMsg.textContent = 'Error reaching the server. Please try again later.';
+				log.appendChild(errMsg);
+			}
+
+			log.scrollTop = log.scrollHeight;
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			const input = document.getElementById('chat-input');
+			if (input) {
+				input.addEventListener('keydown', function (e) {
+					if (e.key === 'Enter' && !e.shiftKey) {
+						e.preventDefault();
+						sendMessage();
+					}
+				});
+			}
+		});
+	</script>
 </body>
 
 </html>
